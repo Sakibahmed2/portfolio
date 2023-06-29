@@ -18,7 +18,7 @@ const Introduce = () => {
                     <p>My field of Interest's are building new <span className='font-semibold primary-text'> Web Technologies and Products </span></p>
                     <p>Whenever possible, I also apply my passion for developing products with <span className='font-semibold primary-text'>Node.js</span> and Modern Javascript Library and Frameworks  like <span className='font-semibold primary-text'>React.js and Next.js</span></p>
                 </div>
-                <Tilt tiltEnable>
+                <Tilt>
                     <img className='mx-auto' src={avatar} alt="" />
                 </Tilt>
             </div>

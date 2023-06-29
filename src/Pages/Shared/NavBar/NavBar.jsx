@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaHome, FaListAlt, FaUser, } from 'react-icons/fa';
 import { FiMonitor } from "react-icons/fi";
 import { Link } from 'react-router-dom';
+import style from './NavBar.css'
 
 
 
@@ -15,14 +16,6 @@ const NavBar = () => {
     };
 
 
-    const downloadResume = (url) => {
-        const aTag = document.createElement('a');
-        aTag.href = url;
-        aTag.setAttribute('download', 'resume');
-        document.body.appendChild(aTag);
-        aTag.click();
-        aTag.remove();
-    }
 
     const navOption = <>
         <li>
@@ -98,9 +91,11 @@ const NavBar = () => {
                         </div>
                         {/* Navigation links */}
                         <div className="hidden sm:block sm:ml-6 ">
-                            <ul className="flex space-x-16 justify-end  text-lg">
-                                {navOption}
-                            </ul>
+                            <nav>
+                                <ul className="flex space-x-16 justify-end  text-lg">
+                                    {navOption}
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
