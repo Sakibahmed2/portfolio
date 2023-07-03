@@ -11,7 +11,7 @@ body {
     font-family: "Raleway", serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+    background-image: linear-gradient(to left, rgb(27, 22, 38), black);
 }
 
 .custom-font {
@@ -40,4 +40,8 @@ body {
 
 .primary-text {
     @apply text-[#cd5ff8]
+}
+
+.custom-btn {
+    @apply bg-[#623686] text-white px-4 py-1 rounded-md hover:bg-[#6d20c5d7]
 }

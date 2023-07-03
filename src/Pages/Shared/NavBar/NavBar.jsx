@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FaHome, FaListAlt, FaUser, } from 'react-icons/fa';
+import { FaHome, FaListAlt, FaUser} from 'react-icons/fa';
+import { BiSolidContact } from "react-icons/bi";
 import { FiMonitor } from "react-icons/fi";
 import { Link } from 'react-router-dom';
 import style from './NavBar.css'
@@ -28,6 +29,9 @@ const NavBar = () => {
             <Link to='/projects' className='flex items-center gap-2'> <span><FiMonitor /></span>Projects</Link>
         </li>
         <li>
+            <Link to='/contact' className='flex items-center gap-2'> <span><BiSolidContact /></span>Contact</Link>
+        </li>
+        <li>
             <a
                 href='Sakib ahmed loskor resume.pdf'
                 download='Sakib ahmed loskor resume.pdf'
@@ -39,7 +43,7 @@ const NavBar = () => {
 
 
     return (
-        <div className="w-full fixed bg-black backdrop-blur-sm drop-shadow-lg bg-opacity-40 text-white   md:h-16">
+        <div className="w-full fixed z-40 bg-black backdrop-blur-sm drop-shadow-lg bg-opacity-40 text-white md:h-16">
             <div className="w-full mx-auto px-2 sm:px-6 lg:px-8 ">
                 <div className="relative flex items-center justify-between h-16">
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -92,7 +96,7 @@ const NavBar = () => {
                         {/* Navigation links */}
                         <div className="hidden sm:block sm:ml-6 ">
                             <nav>
-                                <ul className="flex space-x-16 justify-end  text-lg">
+                                <ul className="flex space-x-10 justify-end  text-lg">
                                     {navOption}
                                 </ul>
                             </nav>

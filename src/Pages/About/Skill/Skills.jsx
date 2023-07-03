@@ -2,6 +2,7 @@ import style from './Skills.css'
 import Tilt from 'react-parallax-tilt';
 import { DiJavascript1, DiReact, DiNodejs, DiGit, DiMongodb, } from "react-icons/di";
 import { SiFirebase, SiNextdotjs, SiVisualstudiocode, SiVercel, SiWindows, SiNetlify } from "react-icons/si";
+import { Slide, Bounce, Flip, Hinge, JackInTheBox, Roll, Rotate, Zoom } from "react-awesome-reveal";
 
 
 
@@ -12,39 +13,39 @@ const Skills = () => {
 
             <div className='text-white grid grid-cols-2 md:grid-cols-4 mt-4'>
                 <Tilt>
-                    <span className='tech-icons flex justify-center items-center'>
+                    <JackInTheBox className='tech-icons flex justify-center items-center'>
                         <DiJavascript1 />
-                    </span>
+                    </JackInTheBox>
                 </Tilt>
                 <Tilt>
-                    <span className='tech-icons flex justify-center items-center'>
+                    <JackInTheBox className='tech-icons flex justify-center items-center'>
                         <DiReact />
-                    </span>
+                    </JackInTheBox>
                 </Tilt>
                 <Tilt>
-                    <span className='tech-icons flex justify-center items-center'>
+                    <JackInTheBox className='tech-icons flex justify-center items-center'>
                         <DiNodejs />
-                    </span>
+                    </JackInTheBox>
                 </Tilt>
                 <Tilt>
-                    <span className='tech-icons flex justify-center items-center'>
+                    <JackInTheBox  className='tech-icons flex justify-center items-center'>
                         <DiMongodb />
-                    </span>
+                    </JackInTheBox>
                 </Tilt>
                 <Tilt>
-                    <span className='tech-icons flex justify-center items-center'>
+                    <JackInTheBox className='tech-icons flex justify-center items-center'>
                         <SiFirebase />
-                    </span>
+                    </JackInTheBox>
                 </Tilt>
                 <Tilt>
-                    <span className='tech-icons flex justify-center items-center'>
+                    <JackInTheBox className='tech-icons flex justify-center items-center'>
                         <SiNextdotjs />
-                    </span>
+                    </JackInTheBox>
                 </Tilt>
                 <Tilt>
-                    <span className='tech-icons flex justify-center items-center'>
+                    <JackInTheBox className='tech-icons flex justify-center items-center'>
                         <DiGit />
-                    </span>
+                    </JackInTheBox>
                 </Tilt>
             </div>
 
@@ -53,24 +54,24 @@ const Skills = () => {
 
             <div className='text-white grid grid-cols-2 md:grid-cols-4 mt-4'>
                 <Tilt>
-                    <span className='tech-icons flex justify-center items-center'>
+                    <JackInTheBox className='tech-icons flex justify-center items-center'>
                         <SiWindows />
-                    </span>
+                    </JackInTheBox>
                 </Tilt>
                 <Tilt>
-                    <span className='tech-icons flex justify-center items-center'>
+                    <JackInTheBox className='tech-icons flex justify-center items-center'>
                         <SiVisualstudiocode />
-                    </span>
+                    </JackInTheBox>
                 </Tilt>
                 <Tilt>
-                    <span className='tech-icons flex justify-center items-center'>
+                    <JackInTheBox className='tech-icons flex justify-center items-center'>
                         <SiVercel />
-                    </span>
+                    </JackInTheBox>
                 </Tilt>
                 <Tilt>
-                    <span className='tech-icons flex justify-center items-center'>
+                    <JackInTheBox className='tech-icons flex justify-center items-center'>
                         <SiNetlify />
-                    </span>
+                    </JackInTheBox>
                 </Tilt>
             </div>
 
