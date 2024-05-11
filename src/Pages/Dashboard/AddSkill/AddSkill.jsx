@@ -1,6 +1,6 @@
 import React from "react";
-import CustomForm from "../../../components/Form/CustomInput/CustomForm";
-import CustomInput from "../../../components/Form/CustomInput/CustomInput";
+import CustomForm from "../../../components/Form/CustomForm";
+import CustomInput from "../../../components/Form/CustomInput";
 import { useAddSkillMutation } from "../../../Redux/api/skillsApi";
 import { toast } from "sonner";
 

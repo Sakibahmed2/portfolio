@@ -1,6 +1,6 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-const CustomInput = ({ name, label, type = "text" }) => {
+const CustomTextArea = ({ name, label, type = "text" }) => {
   const { control } = useFormContext();
 
   return (
@@ -8,15 +8,14 @@ const CustomInput = ({ name, label, type = "text" }) => {
       control={control}
       name={name}
       render={({ field }) => (
-        <label className="form-control w-full max-w-md mt-3">
+        <label className="form-control w-full mt-3">
           <div className="label">
-            <span className="label-text-alt">{label}</span>
+            <span className="label-text">{label}</span>
           </div>
-          <input
+          <textarea
             {...field}
-            type={type}
+            className="textarea  textarea-lg w-full bg-inherit border border-gray-600"
             placeholder={label}
-            className="input w-full max-w-md bg-inherit border-2 border-gray-600"
           />
         </label>
       )}
@@ -24,4 +23,4 @@ const CustomInput = ({ name, label, type = "text" }) => {
   );
 };
 
-export default CustomInput;
+export default CustomTextArea;

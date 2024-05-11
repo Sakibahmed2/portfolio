@@ -8,6 +8,8 @@ import LoginPage from "../Pages/Login/Login";
 import Dashboard from "../Layouts/Dashboard";
 import DashboardSkills from "../Pages/Dashboard/Skills/SkillsDashboard";
 import AddSkill from "../Pages/Dashboard/AddSkill/AddSkill";
+import DashboardProjects from "../Pages/Dashboard/Projects/DashboardProjects";
+import AddProject from "../Pages/Dashboard/AddProjects/AddProject";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +39,7 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: "/dashboard/skills",
+    path: "/dashboard",
     element: <Dashboard />,
     children: [
       {
@@ -47,6 +49,16 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/skills/add-skill",
         element: <AddSkill />,
+      },
+
+      // Projects routes
+      {
+        path: "/dashboard/projects",
+        element: <DashboardProjects />,
+      },
+      {
+        path: "/dashboard/projects/add-projects",
+        element: <AddProject />,
       },
     ],
   },
