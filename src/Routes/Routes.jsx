@@ -14,6 +14,7 @@ import DashboardBlogs from "../Pages/Dashboard/Blogs/DashboardBlogs";
 import AddBlogs from "../Pages/Dashboard/AddBlogs/AddBlogs";
 import Blogs from "../Pages/Blogs/Blogs";
 import UpdateProject from "../Pages/Dashboard/UpdateProject/UpdateProject";
+import UpdateBlog from "../Pages/Dashboard/UpdateBlogs/UpdateBlog";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/blogs/add-blogs",
         element: <AddBlogs />,
+      },
+      {
+        path: "/dashboard/blogs/update-blogs/:id",
+        element: <UpdateBlog />,
       },
     ],
   },

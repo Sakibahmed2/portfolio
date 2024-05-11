@@ -1,8 +1,12 @@
 import React from "react";
 import { useGetAllBlogsQuery } from "../../Redux/api/blogsApi";
+import LoadingPage from "../../components/ui/LoadingPage/LoadingPage";
 
 const Blogs = () => {
-  const { data } = useGetAllBlogsQuery({});
+  const { data, isLoading } = useGetAllBlogsQuery({});
+  if (isLoading) {
+    return <LoadingPage />;
+  }
 
   return (
     <div className="py-20 max-w-screen-xl mx-auto">

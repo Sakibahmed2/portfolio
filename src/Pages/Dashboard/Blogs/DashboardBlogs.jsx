@@ -1,9 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useGetAllBlogsQuery } from "../../../Redux/api/blogsApi";
+import { MdOutlineCreate } from "react-icons/md";
+import { FaTrash } from "react-icons/fa";
+import LoadingPage from "../../../components/ui/LoadingPage/LoadingPage";
 
 const DashboardBlogs = () => {
-  const { data } = useGetAllBlogsQuery({});
+  const { data, isLoading } = useGetAllBlogsQuery({});
+  if (isLoading) {
+    return <LoadingPage />;
+  }
 
   return (
     <div>
@@ -21,6 +27,7 @@ const DashboardBlogs = () => {
                 <th>#</th>
                 <th>Title</th>
                 <th>Post</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -30,6 +37,18 @@ const DashboardBlogs = () => {
                   <td>{item.title}</td>
                   <td>
                     <div dangerouslySetInnerHTML={{ __html: item?.post }} />
+                  </td>
+                  <td>
+                    <div className="flex gap-2">
+                      <Link to={`/dashboard/blogs/update-blogs/${item._id}`}>
+                        <button className="sized-btn bg-gray-700 text-xl">
+                          <MdOutlineCreate />
+                        </button>
+                      </Link>
+                      <button className="sized-btn bg-red-700 text-xl">
+                        <FaTrash />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

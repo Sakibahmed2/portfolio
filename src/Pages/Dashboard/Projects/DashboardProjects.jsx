@@ -4,12 +4,13 @@ import { useGetAllProjectsQuery } from "../../../Redux/api/projectApi";
 import { CgWebsite } from "react-icons/cg";
 import { FaGithub, FaTrash } from "react-icons/fa";
 import { MdOutlineCreate } from "react-icons/md";
+import LoadingPage from "../../../components/ui/LoadingPage/LoadingPage";
 
 const DashboardProjects = () => {
   const { data, isLoading } = useGetAllProjectsQuery({});
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <LoadingPage />;
   }
 
   return (

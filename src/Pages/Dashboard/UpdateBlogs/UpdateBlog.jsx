@@ -1,43 +1,60 @@
 import JoditEditor from "jodit-react";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
+import { toast } from "sonner";
+import {
+  useGetSingleBlogQuery,
+  useUpdateBlogMutation,
+} from "../../../Redux/api/blogsApi";
 import CustomForm from "../../../components/Form/CustomForm";
 import CustomInput from "../../../components/Form/CustomInput";
-import { useAddBlogsMutation } from "../../../Redux/api/blogsApi";
-import { toast } from "sonner";
 import DashboardSectionTitle from "../../../components/ui/DashboardSectionTitle/DashboardSectionTitle";
+import LoadingPage from "../../../components/ui/LoadingPage/LoadingPage";
 
-const defaultValues = {
-  title: "",
-};
-
-const AddBlogs = () => {
-  const [addBlogs] = useAddBlogsMutation();
-
+const UpdateBlog = () => {
   const editor = useRef(null);
-  const [content, setContent] = useState("");
+  const { id } = useParams();
+  const { data, isLoading } = useGetSingleBlogQuery(id);
+  const blogData = data?.data;
+  const [content, setContent] = useState(blogData?.post);
+  const [updateBlog] = useUpdateBlogMutation();
+
+  const defaultValues = {
+    title: blogData?.title || "",
+  };
+
+  useEffect(() => {
+    setContent(blogData?.post);
+  }, [isLoading]);
 
   const handleSubmit = async (data) => {
     const toastId = toast.loading("Loading...");
-    const blogData = {
+    const updatedBlog = {
       title: data.title,
       post: content,
     };
     try {
-      const res = await addBlogs(blogData);
+      const res = await updateBlog({ data: updatedBlog, id: id });
+      console.log(res);
       if (res?.data?.success) {
         toast.success(res?.data.message, { id: toastId });
-        setContent("");
       }
     } catch (err) {
       console.log(err);
     }
   };
 
+  if (isLoading) {
+    return <LoadingPage />;
+  }
+
   return (
     <div className="h-screen flex flex-col justify-center items-center mx-5 ">
-      <DashboardSectionTitle title={"Add blog"} />
+      <DashboardSectionTitle title={"Update blog"} />
       <CustomForm onSubmit={handleSubmit} defaultValues={defaultValues}>
+        {/* CustomInput for the blog title with default value */}
         <CustomInput name={"title"} label={"Blog title"} />
+
         <div className="mt-3">
           <JoditEditor
             ref={editor}
@@ -55,4 +72,4 @@ const AddBlogs = () => {
   );
 };
 
-export default AddBlogs;
+export default UpdateBlog;

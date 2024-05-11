@@ -1,9 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useGetAllSkillQuery } from "../../../Redux/api/skillsApi";
+import LoadingPage from "../../../components/ui/LoadingPage/LoadingPage";
 
 const DashboardSkills = () => {
-  const { data } = useGetAllSkillQuery({});
+  const { data, isLoading } = useGetAllSkillQuery({});
+
+  if (isLoading) {
+    return <LoadingPage />;
+  }
 
   return (
     <div className="h-screen flex flex-col justify-center mx-5">
