@@ -1,47 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Inter&family=Lobster&family=Manrope:wght@500&family=Montserrat&family=Open+Sans&family=Permanent+Marker&family=Poppins:wght@500&family=Rubik+Glitch&family=Work+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&family=Inter&family=Lobster&family=Manrope:wght@500&family=Montserrat&family=Open+Sans&family=Permanent+Marker&family=Poppins:wght@500&family=Rubik+Glitch&family=Work+Sans&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-
 body {
-    margin: 0;
-    font-family: "Raleway", serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-image: linear-gradient(to left, rgb(27, 22, 38), black);
+  margin: 0;
+  font-family: "Raleway", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(to left, rgb(27, 22, 38), black);
 }
 
 .custom-font {
-    font-family: 'Lobster', 'cursive';
+  font-family: "Lobster", "cursive";
 }
 
 /* Type writer styles  */
 .Typewriter__wrapper {
-    font-size: 2.2em;
-    color: #be6adf;
-    font-weight: 600;
+  font-size: 2.2em;
+  color: #be6adf;
+  font-weight: 600;
 }
 
 .Typewriter__cursor {
-    font-size: 2.4em;
-    color: #b562d6;
+  font-size: 2.4em;
+  color: #b562d6;
 }
 
 @media (max-width: 760px) {
-    .Typewriter__wrapper {
-        font-size: 1.5em;
-        color: #be6adf;
-        font-weight: 600;
-    }
+  .Typewriter__wrapper {
+    font-size: 1.5em;
+    color: #be6adf;
+    font-weight: 600;
+  }
 }
 
 .primary-text {
-    @apply text-[#cd5ff8]
+  @apply text-[#cd5ff8];
 }
 
 .custom-btn {
-    @apply bg-[#623686] text-white px-4 py-1 rounded-md hover:bg-[#6d20c5d7]
+  @apply bg-[#623686] text-white px-4 py-1 rounded-md hover:bg-[#6d20c5d7];
+}
+
+.simple-btn {
+  @apply bg-[#623686] text-white py-1 px-3 rounded-sm;
 }

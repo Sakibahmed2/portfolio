@@ -4,6 +4,7 @@ import bannerImg from "../../../assets/update-nerw.png";
 import style from "./Home.css";
 import Introduce from "../Introduce/Introduce";
 import { Slide } from "react-awesome-reveal";
+import { FaListAlt } from "react-icons/fa";
 
 const Home = () => {
   return (
@@ -25,6 +26,18 @@ const Home = () => {
             <div className="mt-5">
               <Type />
             </div>
+            <button className="custom-btn mt-2">
+              <a
+                href="Sakib ahmed loskor resume.pdf"
+                download="Sakib ahmed loskor resume.pdf"
+                className="flex items-center gap-2"
+              >
+                <span>
+                  <FaListAlt />
+                </span>
+                Resume
+              </a>
+            </button>
           </div>
         </Slide>
         <Slide direction="right">
