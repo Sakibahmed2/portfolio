@@ -10,6 +10,9 @@ import DashboardSkills from "../Pages/Dashboard/Skills/SkillsDashboard";
 import AddSkill from "../Pages/Dashboard/AddSkill/AddSkill";
 import DashboardProjects from "../Pages/Dashboard/Projects/DashboardProjects";
 import AddProject from "../Pages/Dashboard/AddProjects/AddProject";
+import DashboardBlogs from "../Pages/Dashboard/Blogs/DashboardBlogs";
+import AddBlogs from "../Pages/Dashboard/AddBlogs/AddBlogs";
+import Blogs from "../Pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/projects",
         element: <Projects />,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs />,
       },
       {
         path: "/contact",
@@ -59,6 +66,16 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/projects/add-projects",
         element: <AddProject />,
+      },
+
+      // blogs routes
+      {
+        path: "/dashboard/blogs",
+        element: <DashboardBlogs />,
+      },
+      {
+        path: "/dashboard/blogs/add-blogs",
+        element: <AddBlogs />,
       },
     ],
   },

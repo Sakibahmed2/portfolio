@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import { FaLightbulb } from "react-icons/fa";
+import { FaInbox, FaLightbulb } from "react-icons/fa";
 import { FaFile } from "react-icons/fa";
 
 const Dashboard = () => {
@@ -54,6 +54,17 @@ const Dashboard = () => {
                 <FaFile />
               </span>
               <p>Projects</p>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/dashboard/blogs"}
+              className="flex items-center text-lg gap-3"
+            >
+              <span>
+                <FaInbox />
+              </span>
+              <p>Blogs</p>
             </Link>
           </li>
         </ul>

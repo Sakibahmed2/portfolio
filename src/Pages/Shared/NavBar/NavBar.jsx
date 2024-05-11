@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaHome, FaListAlt, FaUser } from "react-icons/fa";
+import { FaHome, FaInbox, FaListAlt, FaUser } from "react-icons/fa";
 import { BiSolidContact } from "react-icons/bi";
 import { FiMonitor } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -51,6 +51,15 @@ const NavBar = () => {
             <FiMonitor />
           </span>
           Projects
+        </Link>
+      </li>
+      <li>
+        <Link to="/blogs" className="flex items-center gap-2">
+          {" "}
+          <span>
+            <FaInbox />
+          </span>
+          Blog
         </Link>
       </li>
       <li>

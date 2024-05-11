@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useGetAllSkillQuery } from "../../../Redux/api/skillsApi";
 
 const DashboardSkills = () => {
-  const { data, isLoading } = useGetAllSkillQuery({});
+  const { data } = useGetAllSkillQuery({});
 
   return (
     <div className="h-screen flex flex-col justify-center mx-5">
@@ -13,7 +13,7 @@ const DashboardSkills = () => {
         </Link>
       </div>
       <div>
-        <div className="overflow-x-auto w-[800px]">
+        <div className="overflow-x-auto w-full md:w-[800px]">
           <table className="table">
             {/* head */}
             <thead>
