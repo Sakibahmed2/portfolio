@@ -47,3 +47,7 @@ body {
 .simple-btn {
   @apply bg-[#623686] text-white py-1 px-3 rounded-sm;
 }
+
+.sized-btn {
+  @apply text-white py-1 px-3 rounded-sm;
+}

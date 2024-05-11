@@ -1,6 +1,10 @@
 import React from "react";
 import CustomForm from "../../components/Form/CustomInput/CustomForm";
 import CustomInput from "../../components/Form/CustomInput/CustomInput";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../Redux/features/auth/authSlice";
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 const defaultValues = {
   email: "",
@@ -8,8 +12,23 @@ const defaultValues = {
 };
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const handleLogin = (data) => {
-    console.log(data);
+    const toastId = toast.loading("Loading....");
+    const { email, password } = data;
+
+    try {
+      if (!(email === "admin@gmail.com", password === "123456")) {
+        return toast.error("Wrong pass or email", { id: toastId });
+      }
+      dispatch(setUser(data));
+      toast.success("Login successfully", { id: toastId });
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -20,7 +39,7 @@ const LoginPage = () => {
         </div>
         <CustomForm onSubmit={handleLogin} defaultValues={defaultValues}>
           <CustomInput name={"email"} label={"Email"} />
-          <CustomInput name={"password"} label={"Password"} />
+          <CustomInput name={"password"} label={"Password"} type="password" />
 
           <button className="simple-btn mt-2" type="submit">
             Login

@@ -4,8 +4,20 @@ import { BiSolidContact } from "react-icons/bi";
 import { FiMonitor } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import style from "./NavBar.css";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../../../Redux/features/auth/authSlice";
+import { MdDashboard } from "react-icons/md";
 
 const NavBar = () => {
+  const admin = useSelector((state) => state.auth);
+  console.log(!!admin.email);
+
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logOut());
+  };
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -62,15 +74,31 @@ const NavBar = () => {
           Resume
         </a>
       </li>
-      <li>
-        <Link to="/login" className="flex items-center gap-2">
-          {" "}
-          <span>
-            <BiSolidContact />
-          </span>
-          Contact
-        </Link>
-      </li>
+      <>
+        {!!admin.email ? (
+          <div className="flex justify-center items-center gap-4">
+            <li>
+              <Link to="/dashboard/skills" className="flex items-center gap-2">
+                {" "}
+                <span>
+                  <MdDashboard />
+                </span>
+                Dashboard
+              </Link>
+            </li>
+            <button
+              onClick={handleLogout}
+              className="sized-btn bg-red-700  gap-2"
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <button className="simple-btn flex items-center gap-2">
+            <Link to="/login"> Login</Link>
+          </button>
+        )}
+      </>
     </>
   );
 
