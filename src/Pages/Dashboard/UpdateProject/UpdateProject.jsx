@@ -1,30 +1,46 @@
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import CustomForm from "../../../components/Form/CustomForm";
 import CustomInput from "../../../components/Form/CustomInput";
 import CustomTextArea from "../../../components/Form/CustomTextArea";
-import { useAddProjectsMutation } from "../../../Redux/api/projectApi";
+import {
+  useGetSingleProjectQuery,
+  useUpdateProjectMutation,
+} from "../../../Redux/api/projectApi";
+import LoadingPage from "../../../components/ui/LoadingPage/LoadingPage";
 import { toast } from "sonner";
 import DashboardSectionTitle from "../../../components/ui/DashboardSectionTitle/DashboardSectionTitle";
 
-const defaultValues = {
-  img: "",
-  name: "",
-  description: "",
-  technologies: "",
-  liveLink: "",
-  frontendCode: "",
-  backendCode: "",
-};
+const UpdateProject = () => {
+  const { id } = useParams();
+  const { data, isLoading } = useGetSingleProjectQuery(id);
+  const [updateProject] = useUpdateProjectMutation();
+  const navigate = useNavigate();
 
-const AddProject = () => {
-  const [addProject] = useAddProjectsMutation();
+  if (isLoading) {
+    return <LoadingPage />;
+  }
+
+  const projectData = data?.data;
+
+  const defaultValues = {
+    img: projectData?.img || "",
+    name: projectData?.name || "",
+    description: projectData?.description || "",
+    technologies: projectData?.technologies || "",
+    liveLink: projectData?.liveLink || "",
+    frontendCode: projectData?.frontendCode || "",
+    backendCode: projectData?.backendCode || "",
+  };
 
   const handleSubmit = async (data) => {
     const toastId = toast.loading("Loading...");
+    console.log(data);
     try {
-      const res = await addProject(data);
+      const res = await updateProject({ data, id });
       if (res?.data?.success) {
         toast.success(res?.data?.message, { id: toastId });
+        navigate("/dashboard/projects");
       }
     } catch (err) {
       console.log(err);
@@ -33,8 +49,7 @@ const AddProject = () => {
 
   return (
     <div className="h-screen flex flex-col justify-center items-center md:w-[600px] mx-4">
-      <DashboardSectionTitle title={"Add project"} />
-
+      <DashboardSectionTitle title="Update project" />
       <CustomForm onSubmit={handleSubmit} defaultValues={defaultValues}>
         <div className="grid grid-cols-2 gap-4">
           <CustomInput name={"name"} label={"Project name"} />
@@ -53,11 +68,11 @@ const AddProject = () => {
           <CustomInput name={"backendCode"} label={"Backend code"} />
         </div>
         <button type="submit" className="simple-btn mt-4 w-full">
-          Add project
+          Update project
         </button>
       </CustomForm>
     </div>
   );
 };
 
-export default AddProject;
+export default UpdateProject;

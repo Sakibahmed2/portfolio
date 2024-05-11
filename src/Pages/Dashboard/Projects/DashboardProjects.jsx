@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useGetAllProjectsQuery } from "../../../Redux/api/projectApi";
 import { CgWebsite } from "react-icons/cg";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaTrash } from "react-icons/fa";
+import { MdOutlineCreate } from "react-icons/md";
 
 const DashboardProjects = () => {
   const { data, isLoading } = useGetAllProjectsQuery({});
@@ -27,9 +28,8 @@ const DashboardProjects = () => {
               <th>#</th>
               <th>img</th>
               <th>Name</th>
-              <th>Live link</th>
-              <th>Client code</th>
-              <th>Server code</th>
+              <th>Link</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -47,40 +47,52 @@ const DashboardProjects = () => {
                 </td>
                 <td>{item.name}</td>
                 <td>
-                  <button className="sized-btn bg-gray-700">
-                    <Link
-                      to={item.liveLink}
-                      className="flex justify-center items-center gap-2"
-                      target="_blank"
-                    >
-                      {" "}
-                      <CgWebsite /> Demo
-                    </Link>
-                  </button>
+                  <div className="md:flex items-center gap-2">
+                    <button className="sized-btn bg-gray-700">
+                      <Link
+                        to={item.liveLink}
+                        className="flex justify-center items-center gap-2"
+                        target="_blank"
+                      >
+                        {" "}
+                        <CgWebsite /> Demo
+                      </Link>
+                    </button>
+                    <button className="sized-btn bg-red-800">
+                      <Link
+                        to={item.frontendCode}
+                        className="flex justify-center items-center gap-2"
+                        target="_blank"
+                      >
+                        {" "}
+                        <FaGithub /> Client
+                      </Link>
+                    </button>
+                    <button className="sized-btn bg-sky-800">
+                      <Link
+                        to={item.backendCode}
+                        className="flex justify-center items-center gap-2"
+                        target="_blank"
+                      >
+                        {" "}
+                        <FaGithub /> Server
+                      </Link>
+                    </button>
+                  </div>
                 </td>
                 <td>
-                  <button className="sized-btn bg-red-800">
+                  <div className="flex gap-2">
                     <Link
-                      to={item.frontendCode}
-                      className="flex justify-center items-center gap-2"
-                      target="_blank"
+                      to={`/dashboard/projects/update-projects/${item._id}`}
                     >
-                      {" "}
-                      <FaGithub /> Client
+                      <button className="sized-btn bg-gray-700 text-xl">
+                        <MdOutlineCreate />
+                      </button>
                     </Link>
-                  </button>
-                </td>
-                <td>
-                  <button className="sized-btn bg-sky-800">
-                    <Link
-                      to={item.backendCode}
-                      className="flex justify-center items-center gap-2"
-                      target="_blank"
-                    >
-                      {" "}
-                      <FaGithub /> Server
-                    </Link>
-                  </button>
+                    <button className="sized-btn bg-red-700 text-xl">
+                      <FaTrash />
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

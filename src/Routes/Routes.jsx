@@ -13,6 +13,7 @@ import AddProject from "../Pages/Dashboard/AddProjects/AddProject";
 import DashboardBlogs from "../Pages/Dashboard/Blogs/DashboardBlogs";
 import AddBlogs from "../Pages/Dashboard/AddBlogs/AddBlogs";
 import Blogs from "../Pages/Blogs/Blogs";
+import UpdateProject from "../Pages/Dashboard/UpdateProject/UpdateProject";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/projects/add-projects",
         element: <AddProject />,
+      },
+      {
+        path: "/dashboard/projects/update-projects/:id",
+        element: <UpdateProject />,
       },
 
       // blogs routes

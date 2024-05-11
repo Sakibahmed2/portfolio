@@ -14,7 +14,24 @@ const projectApi = baseApi.injectEndpoints({
         url: "/projects",
       }),
     }),
+    getSingleProject: build.query({
+      query: (id) => ({
+        url: `/projects/${id}`,
+      }),
+    }),
+    updateProject: build.mutation({
+      query: ({ data, id }) => ({
+        url: `/projects/${id}`,
+        method: "PUT",
+        body: data,
+      }),
+    }),
   }),
 });
 
-export const { useAddProjectsMutation, useGetAllProjectsQuery } = projectApi;
+export const {
+  useAddProjectsMutation,
+  useGetAllProjectsQuery,
+  useUpdateProjectMutation,
+  useGetSingleProjectQuery,
+} = projectApi;

@@ -1,6 +1,5 @@
 import React from "react";
 import { useGetAllBlogsQuery } from "../../Redux/api/blogsApi";
-import FormateText from "../../libs/formateTextEditorText";
 
 const Blogs = () => {
   const { data } = useGetAllBlogsQuery({});
@@ -17,9 +16,7 @@ const Blogs = () => {
           >
             {" "}
             <h2 className="text-4xl font-semibold">{item?.title}</h2>
-            <div>
-              <FormateText htmlContent={item.post} />
-            </div>
+            <div dangerouslySetInnerHTML={{ __html: item?.post }} />
           </div>
         ))}
       </div>

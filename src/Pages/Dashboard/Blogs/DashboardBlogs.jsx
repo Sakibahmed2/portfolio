@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useGetAllBlogsQuery } from "../../../Redux/api/blogsApi";
-import FormateText from "../../../libs/formateTextEditorText";
 
 const DashboardBlogs = () => {
   const { data } = useGetAllBlogsQuery({});
@@ -30,7 +29,7 @@ const DashboardBlogs = () => {
                   <td>{index + 1}</td>
                   <td>{item.title}</td>
                   <td>
-                    <FormateText htmlContent={item?.post} />
+                    <div dangerouslySetInnerHTML={{ __html: item?.post }} />
                   </td>
                 </tr>
               ))}
