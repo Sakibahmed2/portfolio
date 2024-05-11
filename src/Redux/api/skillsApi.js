@@ -1,4 +1,3 @@
-import { build } from "vite";
 import { baseApi } from "./baseApi";
 
 const skillApi = baseApi.injectEndpoints({
@@ -10,7 +9,12 @@ const skillApi = baseApi.injectEndpoints({
         body: data,
       }),
     }),
+    getAllSkill: build.query({
+      query: () => ({
+        url: "/skills",
+      }),
+    }),
   }),
 });
 
-export const { useAddSkillMutation } = skillApi;
+export const { useAddSkillMutation, useGetAllSkillQuery } = skillApi;

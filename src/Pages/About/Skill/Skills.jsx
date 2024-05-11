@@ -16,6 +16,7 @@ import {
   SiVisualstudiocode,
 } from "react-icons/si";
 import SkillsTiles from "../../../components/ui/SkillsTiles/Skills";
+import { useGetAllSkillQuery } from "../../../Redux/api/skillsApi";
 
 const technologies = [
   { icon: <DiJavascript1 size={50} />, title: "JavaScript" },
@@ -31,7 +32,7 @@ const technologies = [
   { icon: <SiMongoose size={50} />, title: "Mongoose" },
   { icon: <SiTailwindcss size={50} />, title: "Tailwind" },
   { icon: <SiMaterialdesign size={50} />, title: "Material ui" },
-  { icon: <SiAntdesign size={50} />, title: "Ant design" },
+  // { icon: <SiAntdesign size={50} />, title: "Ant design" },
 ];
 
 const tools = [
@@ -42,6 +43,9 @@ const tools = [
 ];
 
 const Skills = () => {
+  const { data } = useGetAllSkillQuery({});
+  console.log(data);
+
   return (
     <div className="mt-12">
       <h4 className="text-4xl text-center primary-text font-semibold">
@@ -51,6 +55,10 @@ const Skills = () => {
       <div className="text-white grid grid-cols-3 md:grid-cols-5 mt-4">
         {technologies.map((tech, index) => (
           <SkillsTiles key={index} icon={tech.icon} title={tech.title} />
+        ))}
+
+        {data?.data.map((item) => (
+          <SkillsTiles key={item?._id} img={item.icon} title={item.title} />
         ))}
       </div>
 

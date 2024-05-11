@@ -7,6 +7,7 @@ import Contact from "../Pages/Contact/Contact";
 import LoginPage from "../Pages/Login/Login";
 import Dashboard from "../Layouts/Dashboard";
 import DashboardSkills from "../Pages/Dashboard/Skills/SkillsDashboard";
+import AddSkill from "../Pages/Dashboard/AddSkill/AddSkill";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/skills",
         element: <DashboardSkills />,
+      },
+      {
+        path: "/dashboard/skills/add-skill",
+        element: <AddSkill />,
       },
     ],
   },
