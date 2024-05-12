@@ -9,7 +9,7 @@ const Blogs = () => {
   }
 
   return (
-    <div className="py-20 max-w-screen-xl mx-auto">
+    <div className="py-20 px-5 max-w-screen-xl mx-auto">
       <h2 className="text-white text-4xl font-semibold text-center">Blogs </h2>
 
       <div className="">

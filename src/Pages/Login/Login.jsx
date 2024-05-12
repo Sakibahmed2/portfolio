@@ -32,19 +32,21 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="h-screen flex  justify-center items-center">
       <div className="bg-zinc-700 w-full max-w-[500px] flex flex-col justify-center items-center py-10 mx-5 rounded-md border border-gray-600 bg-opacity-25">
         <div>
           <p className="text-2xl font-semibold my-5">Login here</p>
         </div>
-        <CustomForm onSubmit={handleLogin} defaultValues={defaultValues}>
-          <CustomInput name={"email"} label={"Email"} />
-          <CustomInput name={"password"} label={"Password"} type="password" />
+        <div className="w-full max-w-[400px] px-10">
+          <CustomForm onSubmit={handleLogin} defaultValues={defaultValues}>
+            <CustomInput name={"email"} label={"Email"} />
+            <CustomInput name={"password"} label={"Password"} type="password" />
 
-          <button className="simple-btn mt-2" type="submit">
-            Login
-          </button>
-        </CustomForm>
+            <button className="custom-btn h-12 mt-3 w-full" type="submit">
+              Login
+            </button>
+          </CustomForm>
+        </div>
       </div>
     </div>
   );

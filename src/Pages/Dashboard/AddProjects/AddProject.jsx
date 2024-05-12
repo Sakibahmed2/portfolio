@@ -32,7 +32,7 @@ const AddProject = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center md:w-[600px] mx-4">
+    <div className="h-screen flex flex-col pt-10 justify-center items-center md:w-[600px] mx-4">
       <DashboardSectionTitle title={"Add project"} />
 
       <CustomForm onSubmit={handleSubmit} defaultValues={defaultValues}>

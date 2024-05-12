@@ -35,7 +35,6 @@ const UpdateBlog = () => {
     };
     try {
       const res = await updateBlog({ data: updatedBlog, id: id });
-      console.log(res);
       if (res?.data?.success) {
         toast.success(res?.data.message, { id: toastId });
       }
@@ -49,7 +48,7 @@ const UpdateBlog = () => {
   }
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center mx-5 ">
+    <div className="h-screen flex flex-col justify-center items-center mx-5 pt-40 md:pt-0">
       <DashboardSectionTitle title={"Update blog"} />
       <CustomForm onSubmit={handleSubmit} defaultValues={defaultValues}>
         {/* CustomInput for the blog title with default value */}

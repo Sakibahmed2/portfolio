@@ -9,7 +9,7 @@ const ProjectCard = ({ project }) => {
     project || {};
 
   return (
-    <div className="card w-[350px]  md:w-96 md:mx-0 mx-4 shadow-xl backdrop-blur-md project-card-view ">
+    <div className="card  w-[310px] md:w-96 md:mx-0 mx-auto shadow-xl backdrop-blur-md project-card-view ">
       <figure>
         <img className="p-8" src={img} alt="Shoes" />
       </figure>

@@ -1,17 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useGetAllProjectsQuery } from "../../../Redux/api/projectApi";
+import {
+  useDeleteProjectMutation,
+  useGetAllProjectsQuery,
+} from "../../../Redux/api/projectApi";
 import { CgWebsite } from "react-icons/cg";
 import { FaGithub, FaTrash } from "react-icons/fa";
 import { MdOutlineCreate } from "react-icons/md";
 import LoadingPage from "../../../components/ui/LoadingPage/LoadingPage";
+import { toast } from "sonner";
 
 const DashboardProjects = () => {
-  const { data, isLoading } = useGetAllProjectsQuery({});
+  const { data, isLoading, refetch } = useGetAllProjectsQuery({});
+  const [deleteProject] = useDeleteProjectMutation();
 
   if (isLoading) {
     return <LoadingPage />;
   }
+
+  const handleDelete = async (id) => {
+    const toastId = toast.loading("Loading...");
+    try {
+      const res = await deleteProject(id);
+      if (res?.data?.success) {
+        toast.success(res?.data.message, { id: toastId });
+        refetch();
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="h-screen flex flex-col justify-center mx-5">
@@ -21,8 +39,8 @@ const DashboardProjects = () => {
         </Link>
       </div>
 
-      <div className="overflow-x-auto w-full md:w-[800px]">
-        <table className="table">
+      <div className="overflow-x-auto ">
+        <table className="table table-xs md:table-lg">
           {/* head */}
           <thead>
             <tr>
@@ -82,15 +100,18 @@ const DashboardProjects = () => {
                   </div>
                 </td>
                 <td>
-                  <div className="flex gap-2">
+                  <div className="md:flex gap-2">
                     <Link
                       to={`/dashboard/projects/update-projects/${item._id}`}
                     >
-                      <button className="sized-btn bg-gray-700 text-xl">
+                      <button className="sized-btn bg-gray-700 md:text-xl">
                         <MdOutlineCreate />
                       </button>
                     </Link>
-                    <button className="sized-btn bg-red-700 text-xl">
+                    <button
+                      onClick={() => handleDelete(item?._id)}
+                      className="sized-btn bg-red-700 md:text-xl mt-2 md:mt-0"
+                    >
                       <FaTrash />
                     </button>
                   </div>

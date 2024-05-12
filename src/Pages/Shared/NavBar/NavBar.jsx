@@ -85,7 +85,7 @@ const NavBar = () => {
       </li>
       <>
         {!!admin.email ? (
-          <div className="flex justify-center items-center gap-4">
+          <div className="md:flex justify-center items-center gap-4">
             <li>
               <Link to="/dashboard/skills" className="flex items-center gap-2">
                 {" "}
@@ -97,7 +97,7 @@ const NavBar = () => {
             </li>
             <button
               onClick={handleLogout}
-              className="sized-btn bg-red-700  gap-2"
+              className="sized-btn bg-red-700  gap-2 mt-2"
             >
               Logout
             </button>

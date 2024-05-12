@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { FaInbox, FaLightbulb } from "react-icons/fa";
 import { FaFile } from "react-icons/fa";
+import { CiMenuBurger } from "react-icons/ci";
 
 const Dashboard = () => {
   return (
@@ -11,9 +12,12 @@ const Dashboard = () => {
         <Outlet />
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden absolute top-5 left-5"
+          className="flex items-center gap-2 bg-gray-600 py-1 px-2 rounded-md bg-opacity-25 border border-gray-600 drawer-button lg:hidden absolute top-5 left-5"
         >
-          Open drawer
+          <span>
+            <CiMenuBurger />
+          </span>
+          Menu
         </label>
       </div>
       <div className="drawer-side">
